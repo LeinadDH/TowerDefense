@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.01
-  _health: 260
+  _health: 200
   _range: 0.2
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
-  _damage: 30
+  _damage: 5
   _damageCooldown: 1
 --- !u!61 &3451913444922005536
 BoxCollider2D:

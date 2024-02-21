@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - QueenEnemy
   - KingEnemy
+  - Tower
+  - Title
   layers:
   - Default
   - TransparentFX

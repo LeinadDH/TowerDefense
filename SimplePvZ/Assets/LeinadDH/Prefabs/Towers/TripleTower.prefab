@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5353789117077755683}
   m_Layer: 8
   m_Name: TripleTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   - {fileID: 8280988811804580958}
   - {fileID: 7529122106325400024}
   _coolDown: 2
-  _range: 5
+  _range: 4
   _layerMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
 
 namespace com.LeinadDH.ChessDefense
 {
@@ -26,16 +23,17 @@ namespace com.LeinadDH.ChessDefense
             {
                 tile.GetComponent<SpriteRenderer>().enabled = false;
             }
-
+            
             if (hit.collider && CurrentCard)
             {
+                if (hit.collider.GetComponent<CardLive>()) return;
+                
                 hit.collider.GetComponent<SpriteRenderer>().sprite = _currentCardSprite;
                 hit.collider.GetComponent<SpriteRenderer>().enabled = true;
 
-                if (Input.GetMouseButton(0) && hit.collider.GetComponent<Tile>().HasPlant == false)
+                if (Input.GetMouseButton(0))
                 {
                     Instantiate(CurrentCard, hit.collider.transform.position, Quaternion.identity);
-                    hit.collider.GetComponent<Tile>().HasPlant = true;
                     CurrentCard = null;
                     _currentCardSprite = null;
                 }

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3409556665811777337}
   m_Layer: 8
   m_Name: SimpleTower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootOrigin: {fileID: 3087069717935052549}
   _coolDown: 2
-  _range: 5
+  _range: 6
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
