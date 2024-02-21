@@ -47,11 +47,19 @@ namespace com.LeinadDH.ChessDefense
 
         public static void SetupPool<T>(T pooledItemPrefab, int poolSize, string dictionaryEntry) where T : Component
         {
-            PoolDictionary.Add(dictionaryEntry, new Queue<Component>());
-            PoolLookup.Add(dictionaryEntry, pooledItemPrefab);
+            if (PoolDictionary.ContainsKey(dictionaryEntry))
+            {
+                PoolDictionary[dictionaryEntry].Clear();
+                PoolLookup.Remove(dictionaryEntry);
+                Destroy(_poolParents[dictionaryEntry]);
+                _poolParents.Remove(dictionaryEntry);
+            }
+            
+            PoolDictionary[dictionaryEntry] = new Queue<Component>();
+            PoolLookup[dictionaryEntry] = pooledItemPrefab;
 
             GameObject poolParent = new GameObject(dictionaryEntry + "Pool");
-            _poolParents.Add(dictionaryEntry, poolParent);
+            _poolParents[dictionaryEntry] = poolParent;
 
             for (int i = 0; i < poolSize; i++)
             {

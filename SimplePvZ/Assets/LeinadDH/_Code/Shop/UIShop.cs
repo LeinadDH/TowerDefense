@@ -8,7 +8,7 @@ namespace com.LeinadDH.ChessDefense
         public List<GameObject> prefabList;
         public GameObject parentUIObject;
 
-        void Start()
+        void Awake()
         {
             InstantiatePrefabs();
         }

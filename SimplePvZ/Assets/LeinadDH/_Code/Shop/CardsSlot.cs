@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +20,11 @@ namespace com.LeinadDH.ChessDefense
 
         public void BuyCard()
         {
-            _shopManager.BuyCard(_cardPrefab, _cardSprite);
+            if (_shopManager.Coins >= _cardCost && !_shopManager.CurrentCard)
+            {
+                _shopManager.Coins -= _cardCost;
+                _shopManager.BuyCard(_cardPrefab, _cardSprite);
+            }
         }
         
         private void OnValidate()
