@@ -11,6 +11,7 @@ namespace com.LeinadDH.ChessDefense
         [SerializeField] private Sprite _currentCardSprite;
         [SerializeField] private Transform _interactableTiles;
         [SerializeField] private LayerMask _tileLayer;
+        [SerializeField] private LayerMask _tileLayerConfirm;
         [SerializeField] private TextMeshProUGUI _coinsText;
         
         private void Update()
@@ -18,16 +19,16 @@ namespace com.LeinadDH.ChessDefense
             _coinsText.text = Coins.ToString();
             
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, _tileLayer);
-
+            RaycastHit2D compare = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, _tileLayerConfirm);
+            
+            
             foreach (Transform tile in _interactableTiles)
             {
                 tile.GetComponent<SpriteRenderer>().enabled = false;
             }
             
-            if (hit.collider && CurrentCard)
+            if (hit.collider && CurrentCard && !compare.collider)
             {
-                if (hit.collider.GetComponent<CardLive>()) return;
-                
                 hit.collider.GetComponent<SpriteRenderer>().sprite = _currentCardSprite;
                 hit.collider.GetComponent<SpriteRenderer>().enabled = true;
 

@@ -11,7 +11,7 @@ namespace com.LeinadDH.ChessDefense
             _shopManager = GameObject.Find("GameManager").GetComponent<ShopManager>();
         }
 
-        private void OnMouseDown()
+        public void OnClick()
         {
             ObjectPooler.EnqueueObject(this, "Coin");
             _shopManager.Coins = _shopManager.Coins + 50;

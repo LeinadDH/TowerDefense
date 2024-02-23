@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.25
-  _health: 1400
+  _health: 600
   _range: 0.2
   _layerMask:
     serializedVersion: 2
